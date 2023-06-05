@@ -41,10 +41,10 @@
             //              |  GUI   |  DEL   |  RET   |~~~~| SPACE  |  ESC   |        |~~~|  RET   |        |~~~~|  TAB   |        |        |
 
             bindings = <
-    &kp LEFT_ALT       &kp Q  &kp W     &kp E    &kp R      &kp T                                        &kp Y      &kp U     &kp I      &kp O          &kp P   &kp BSPC
-&kp LEFT_CONTROL       AS(A)  &kp S     &kp D    &kp F      &kp G                                        &kp H      &kp J     &kp K      &kp L  &kp SEMICOLON    &kp SQT
-         &kp ESC  &kp LSHIFT  &kp Z     &kp X    &kp C      &kp V  &none  &kp ENTER        &none  &none  &kp B      &kp N     &kp M  &kp COMMA        &kp DOT  &kp RCTRL
-                                     &kp LGUI  &kp TAB  &kp GRAVE  &mo 2  &kp SPACE  &key_repeat  &mo 1  &mo 2  &kp SLASH  &kp BSLH
+    &kp LEFT_ALT       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                        AS(Y)     AS(U)     AS(I)      AS(O)          AS(P)   &kp BSPC
+&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                        AS(H)      AS(J)     AS(K)      AS(L)  &kp SEMICOLON    &kp SQT
+         &kp ESC  &kp LSHIFT  AS(Z)     AS(X)    AS(C)     AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &kp COMMA        &kp DOT  &kp RCTRL
+                                     &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &kp SPACE  &key_repeat  &mo 1  &mo 2  &kp SLASH  &kp BSLH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
