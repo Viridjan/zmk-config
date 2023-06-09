@@ -17,7 +17,6 @@
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
-
     behaviors {
       as: auto_shift {
         compatible = "zmk,behavior-hold-tap";
@@ -35,16 +34,16 @@
 
         default_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  CTRL  |   Q    |   W    |   E    |   R    |   T    |                  ~~~                  |   Y    |   U    |   I    |   O    |   P    |   \    |
-            // |  ALT   |   A    |   S    |   D    |   F    |   G    |                  ~~~                  |   H    |   J    |   K    |   L    |   ;    |   '    |
-            // |  ESC   | SHIFT  |   X    |   C    |   V    |   B    |        |        |~~~|        |        |   N    |   M    |   ,    |   .    |   /    |        |
-            //              |  GUI   |  DEL   |  RET   |~~~~| SPACE  |  ESC   |        |~~~|  RET   |        |~~~~|  TAB   |        |        |
+            // |  ESC   |   Q    |   W    |   E    |   R    |   T    |                  ~~~                  |   Y    |   U    |   I    |   O    |   P    |   \    |
+            // |  CTRL  |   A    |   S    |   D    |   F    |   G    |                  ~~~                  |   H    |   J    |   K    |   L    |   ;    |   '    |
+            // |  ALT   | SHIFT  |   Z    |   X    |   C    |   V    |        | ENTER  |~~~|        |        |   B    |   N    |   M    |        |   ,    |   .    |
+            //              |  GUI   |  DEL   |  RET   |   `    |~~~~|  [2]   |  SPC   |~~~|  [1]   |  [2]   |~~~~|  TAB   |   /    |   \    |
 
             bindings = <
-    &kp LEFT_ALT       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                        AS(Y)     AS(U)     AS(I)      AS(O)          AS(P)   &kp BSPC
-&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                        AS(H)      AS(J)     AS(K)      AS(L)  &kp SEMICOLON    &kp SQT
-         &kp ESC  &kp LSHIFT  AS(Z)     AS(X)    AS(C)     AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &kp COMMA        &kp DOT  &kp RCTRL
-                                     &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &kp SPACE  &key_repeat  &mo 1  &mo 2  &kp SLASH  &kp BSLH
+        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                       AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)  &kp BSPC
+&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                       AS(H)      AS(J)     AS(K)  AS(L)  &kp SEMICOLON   &kp SQT
+    &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)     AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none      &kp COMMA   &kp DOT
+                                     &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &kp SPACE  &key_repeat &mo 1  &mo 2  &kp SLASH  &kp BSLH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
