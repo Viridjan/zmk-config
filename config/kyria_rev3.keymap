@@ -34,10 +34,21 @@
 
         default_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  ESC   |   Q    |   W    |   E    |   R    |   T    |                  ~~~                  |   Y    |   U    |   I    |   O    |   P    |   \    |
-            // |  CTRL  |   A    |   S    |   D    |   F    |   G    |                  ~~~                  |   H    |   J    |   K    |   L    |   ;    |   '    |
-            // |  ALT   | SHIFT  |   Z    |   X    |   C    |   V    |        | ENTER  |~~~|        |        |   B    |   N    |   M    |        |   ,    |   .    |
-            //              |  GUI   |  DEL   |  RET   |   `    |~~~~|  [2]   |  SPC   |~~~|  [1]   |  [2]   |~~~~|  TAB   |   /    |   \    |
+            // | ESC  |  Q   |  W   |  E   |  R   |  T   |              ~~~              |  Y   |  U   |  I   |  O   |  P   |  \   |  
+            // ~[ F1 ]~[ F2 ]|[ F3 ]|[ F4 ]|[ F5 ]|[ F6 ]|              ~~~              ~[ 7  ]|[ 8  ]|[ 9  ]|[ 0  ]|[    ]|[    ]~  
+            // ~[    ]~[    ]~[    ]~[    ]~[    ]~[PGUP]~              ~~~              ~[HOME]~[    ]~[ ↑  ]~[    ]~[    ]~[    ]~
+            
+            // | CTRL |  A   |  S   |  D   |  F   |  G   |              ~~~              |  H   |  J   |  K   |  L   |  ;   |  '   |  
+            // ~| F7 ]|[ F8 ]|[ F9 ]|[F10 ]|[F11 ]|[F12 ]~              ~~~              ~[ 4  ]|[ 5  ]|[ 6  ]|[ +  ]|[ -  ]|[ =  ]|  
+            // ~[    ]~[    ]~[    ]~[    ]~[    ]~[PGDN]~              ~~~              ~[END ]~[ ←  ]~[ ↓  ]~[ →  ]~[    ]~[    ]~
+            
+            // | ALT  |  ⇧   |  Z   |  X   |  C   |  V   |      | ENT  |~~~|      |      |  B   |  N   |  M   |      |  ,   |  .   |  
+            // ~[    ]|[    ]|[    ]|[    ]|[    ]|[    ]|[    ]|[    ]~~~~~[ 1  ]|[ 2  ]|[ 3  ]|[ *  ]|[ /  ]|[    ]|[    ]|[    ]~  
+            // ~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~~~~~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~
+            
+            //                  | GUI  | TAB  |  `   |~~~| [2]  | SPC  |~~~|REPEAT| [1]  |~~~| [2]  |  /   |  \   |  
+            //                  ~[    ]|[    ]|[    ]~~~~~[    ]|[    ]~~~~~[    ]|[VOL+}~~~~~[    ]|[    ]|[    ]~
+            //                  ~[    ]~[    ]~[    ]~~~~~[    ]~[    ]~~~~~[ >| ]~[VOL-]~~~~~[    ]~[ << ]~[ >> ]~
 
             bindings = <
         &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                       AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)  &kp BSPC
@@ -45,7 +56,6 @@
     &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)     AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none      &kp COMMA   &kp DOT
                                      &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &kp SPACE  &key_repeat &mo 1  &mo 2  &kp SLASH  &kp BSLH
             >;
-
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
