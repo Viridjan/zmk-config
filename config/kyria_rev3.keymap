@@ -22,7 +22,7 @@
         compatible = "zmk,behavior-hold-tap";
         label = "AUTO_SHIFT";
         #binding-cells = <2>;
-        tapping_term_ms = <150>;
+        tapping_term_ms = <135>;
         quick_tap_ms = <0>;
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
@@ -37,23 +37,24 @@
             // | ESC  |  Q   |  W   |  E   |  R   |  T   |              ~~~              |  Y   |  U   |  I   |  O   |  P   | BSPC |  
             // ~[ F1 ]~[ F2 ]|[ F3 ]|[ F4 ]|[ F5 ]|[ F6 ]|              ~~~              ~[ 7  ]|[ 8  ]|[ 9  ]|[ 0  ]|[    ]|[DEL ]~  
             // ~[    ]~[    ]~[    ]~[    ]~[    ]~[PGUP]~              ~~~              ~[HOME]~[    ]~[ ↑  ]~[    ]~[    ]~[    ]~
-            
+            // ---------------------------------------------------------------------------------------------------------------------------------
             // | CTRL |  A   |  S   |  D   |  F   |  G   |              ~~~              |  H   |  J   |  K   |  L   |  ;   |  '   |  
             // ~| F7 ]|[ F8 ]|[ F9 ]|[F10 ]|[F11 ]|[F12 ]~              ~~~              ~[ 4  ]|[ 5  ]|[ 6  ]|[ +  ]|[ -  ]|[ =  ]|  
             // ~[    ]~[    ]~[    ]~[    ]~[    ]~[PGDN]~              ~~~              ~[END ]~[ ←  ]~[ ↓  ]~[ →  ]~[    ]~[    ]~
-            
-            // | ALT  |  ⇧   |  Z   |  X   |  C   |  V   |      | ENT  |~~~|      |      |  B   |  N   |  M   |      |  ,   |  .   |  
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            // | ALT  |  ⇧   |  Z   |  X   |  C   |  V   |      |ENTER |~~~|      |      |  B   |  N   |  M   |      |  ,   |  .   |  
             // ~[    ]|[    ]|[    ]|[    ]|[    ]|[    ]|[    ]|[    ]~~~~~[ 1  ]|[ 2  ]|[ 3  ]|[ *  ]|[ /  ]|[    ]|[    ]|[    ]~  
             // ~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~~~~~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~[    ]~
-            
-            //                  | GUI  | TAB  |  `   |~~~| [2]  | SPC  |~~~|REPEAT| [1]  |~~~| [2]  |  /   |  \   |  
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            //                  | GUI  | TAB  |  `   |~~~| [2]  |SPACE |~~~|REPEAT| [1]  |~~~| [2]  |  /   |  \   |  
             //                  ~[    ]|[    ]|[    ]~~~~~[    ]|[    ]~~~~~[    ]|[VOL+}~~~~~[    ]|[    ]|[    ]~
             //                  ~[    ]~[    ]~[    ]~~~~~[    ]~[    ]~~~~~[ >| ]~[VOL-]~~~~~[    ]~[ << ]~[ >> ]~
-
+            // ---------------------------------------------------------------------------------------------------------------------------------
+            
             bindings = <
-        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                        AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)      &kp BSPC
-&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                        AS(H)      AS(J)     AS(K)  AS(L)  AS(SEMICOLON)       AS(SQT)
-    &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none      AS(COMMA)  &kp  AS(DOT)
+        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                        AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)  &kp BSPC
+&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                        AS(H)      AS(J)     AS(K)  AS(L)  AS(SEMICOLON)   AS(SQT)
+    &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none      AS(COMMA)   AS(DOT)
                                      &kp LGUI  AS(TAB)  AS(GRAVE)  &mo 2  &kp SPACE  &key_repeat  &mo 1  &mo 2  AS(SLASH)  AS(BSLH)
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -61,7 +62,7 @@
 
         layer_1 {
             bindings = <
-&kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6                                  AS(N7)  AS(N8)  AS(N9)    AS(N0)     &none    &kp BSPC
+&kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6                                  AS(N7)  AS(N8)  AS(N9)    AS(N0)     &none     &kp DEL
 &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12                                  AS(N4)  AS(N5)  AS(N6)  &kp PLUS  &kp MINUS  &kp EQUAL
 &trans  &trans  &trans   &trans   &trans   &trans  &trans  &trans  &trans  &trans  AS(N1)  AS(N2)  AS(N3)  &kp STAR  &kp SLASH    &kp DOT
                          &trans   &trans   &trans  &trans  &trans  &trans   &none   &none   &none   &none
