@@ -51,8 +51,8 @@
             //                  ~[    ]~[    ]~[    ]~~~~~[    ]~[    ]~~~~~[ >| ]~[VOL-]~~~~~[    ]~[ << ]~[ >> ]~
 
             bindings = <
-        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                       AS(Y)      AS(U)      AS(I)  AS(O)          AS(P)      &kp BSPC
-&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                       AS(H)      AS(J)      AS(K)  AS(L)  &kp SEMICOLON       AS(SQT)
+        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                        AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)      &kp BSPC
+&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                        AS(H)      AS(J)     AS(K)  AS(L)  AS(SEMICOLON)       AS(SQT)
     &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none      AS(COMMA)  &kp  AS(DOT)
                                      &kp LGUI  AS(TAB)  AS(GRAVE)  &mo 2  &kp SPACE  &key_repeat  &mo 1  &mo 2  AS(SLASH)  AS(BSLH)
             >;
@@ -61,10 +61,10 @@
 
         layer_1 {
             bindings = <
-&kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6                                  AS(N7)  AS(N8)  AS(N9)    AS(N0)     &none    &kp DEL
+&kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6                                  AS(N7)  AS(N8)  AS(N9)    AS(N0)     &none    &kp BSPC
 &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12                                  AS(N4)  AS(N5)  AS(N6)  &kp PLUS  &kp MINUS  &kp EQUAL
 &trans  &trans  &trans   &trans   &trans   &trans  &trans  &trans  &trans  &trans  AS(N1)  AS(N2)  AS(N3)  &kp STAR  &kp SLASH    &kp DOT
-                         &trans   &trans   &trans  &trans  &trans  &trans   &none  &trans  &trans  &trans
+                         &trans   &trans   &trans  &trans  &trans  &trans   &none   &none   &none   &none
             >;
         };
 
