@@ -53,7 +53,7 @@
             bindings = <
         &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                       AS(Y)      AS(U)      AS(I)  AS(O)          AS(P)      &kp BSPC
 &kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                       AS(H)      AS(J)      AS(K)  AS(L)  &kp SEMICOLON       AS(SQT)
-    &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none      AS(COMMA)  &kp DOT(DOT)
+    &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none  &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none      AS(COMMA)  &kp  AS(DOT)
                                      &kp LGUI  AS(TAB)  AS(GRAVE)  &mo 2  &kp SPACE  &key_repeat  &mo 1  &mo 2  AS(SLASH)  AS(BSLH)
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
