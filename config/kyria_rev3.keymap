@@ -23,16 +23,6 @@
          quick_tap_ms = <0>;
          flavor = "tap-preferred";
          bindings = <&kp>, <&kp>;
-         
-     ht: homerow_mods {
-         compatible = "zmk,behavior-hold-tap";
-         label = "HOLD_TAP";
-         #binding-cells = <2>;
-         tapping-term-ms = <200>;
-         quick-tap-ms = <0>;
-         flavor = "tap-preferred";
-         bindings = <&kp>, <&kp>;
-        };
       };
     };
             // ---------------------------------------------------------------------------------------------------------------------
@@ -57,7 +47,7 @@
         &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                        AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)  &kp BSPC
 &kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                        AS(H)      AS(J)     AS(K)  AS(L)      AS(COMMA)   AS(DOT)
     &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none        &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none  AS(SEMICOLON)   AS(SQT)
-                                     &kp LGUI  AS(TAB)  AS(GRAVE)  &mo 2  &ht SPACE ENTER  &key_repeat  &mo 1  &mo 2  AS(SLASH)  AS(BSLH)
+                                     &kp LGUI  AS(TAB)  AS(GRAVE)  &mo 2  &mt SPACE ENTER  &key_repeat  &mo 1  &mo 2  AS(SLASH)  AS(BSLH)
             >;      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };          layer_1 { bindings = <
 &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6                                AS(N7)  AS(N8)  AS(N9)    AS(N0)     &none     &kp DEL
