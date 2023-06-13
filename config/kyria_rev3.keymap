@@ -5,13 +5,10 @@
 #include <dt-bindings/zmk/keys.h>
 
 &led_strip {
-    // chain-length = <6>;
-
-    chain-length = <31>;// Uncomment if using both per-key and underglow LEDs
-    // chain-length = <25>; // Uncomment if using only per-key LEDs.
+    chain-length = <31>;
 };
 
-#define AS(keycode) &as LS(keycode) keycode
+#define AS(keycode) &as LS(keycode) keycode     //  autoshift modifier
 
 / {
     behaviors {
@@ -28,7 +25,7 @@
             // ---------------------------------------------------------------------------------------------------------------------
             // | ESC  |  Q   |  W   |  E   |  R   |  T   |              ~~~              |  Y   |  U   |  I   |  O   |  P   | BSPC |
             // | CTRL |  A   |  S   |  D   |  F   |  G   |              ~~~              |  H   |  J   |  K   |  L   |  ,   |  .   |
-            // | ALT  |  ⇧   |  Z   |  X   |  C   |  V   | ____ |ENTER |~~~| ____ | ____ |  B   |  N   |  M   | //// |  ;   |  '   |
+            // | ALT  |  ⇧   |  Z   |  X   |  C   |  V   | ____ |ENTER |~~~| ____ | ____ |  B   |  N   |  M   | ____ |  ;   |  '   |
             //                   | GUI  | TAB  |  `   |~~| [2]  | SPC+ |~~~|REPEAT| [1]  |~~| [2]  |  /   |  \   |
             // ---------------------------------------------------------------------------------------------------------------------
             // ~[ F1 ]~[ F2 ]|[ F3 ]|[ F4 ]|[ F5 ]|[ F6 ]~              ~~~              ~[ 7  ]|[ 8  ]|[ 9  ]|[ 0  ]|[    ]|[DEL ]~
@@ -44,8 +41,8 @@
     keymap {
         compatible = "zmk,keymap";
         default_layer { bindings = <
-        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                        AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)  &kp BSPC
-&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                        AS(H)      AS(J)     AS(K)  AS(L)      AS(COMMA)   AS(DOT)
+        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                              AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)  &kp BSPC
+&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                              AS(H)      AS(J)     AS(K)  AS(L)      AS(COMMA)   AS(DOT)
     &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none        &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none  AS(SEMICOLON)   AS(SQT)
                                      &kp LGUI  AS(TAB)  AS(GRAVE)  &mo 2  &mt SPACE ENTER  &key_repeat  &mo 1  &mo 2  AS(SLASH)  AS(BSLH)
             >;      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
