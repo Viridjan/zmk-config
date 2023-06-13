@@ -11,7 +11,7 @@
 #define HMC(keycode) &hm CTRL keycode
 #define HMG(keycode) &hm LGUI keycode
 #define HMS(keycode) &hm SHIFT keycode
-#define H1AG(keycode) &hm ALT keycode
+#define HMAG(keycode) &hm ALT keycode
 
 / {
     behaviors {
