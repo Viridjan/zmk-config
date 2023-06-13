@@ -7,10 +7,10 @@
 &led_strip { chain-length = <31>; };
 
 #define AS(keycode) &as LS(keycode) keycode     //  autoshift modifier
-#define HMA(keycode) &hm ALT keycode
-#define HMC(keycode) &hm CTRL keycode
+#define HMA(keycode) &hm LALT keycode
+#define HMC(keycode) &hm LCTRL keycode
 #define HMG(keycode) &hm LGUI keycode
-#define HMS(keycode) &hm SHIFT keycode
+#define HMS(keycode) &hm LSHIFT keycode
 #define HMAG(keycode) &hm RALT keycode
 
 / {
@@ -20,9 +20,10 @@
             label = "HOMEROW_MOD";
             #binding-cells = <2>;
             tapping_term_ms = <200>;
+            quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            };
+        };
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
@@ -31,7 +32,7 @@
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-      };
+        };
     };
             // ---------------------------------------------------------------------------------------------------------------------
             // | ESC  |  Q   |  W   |  E   |  R   |  T   |              ~~~              |  Y   |  U   |  I   |  O   |  P   | BSPC |
@@ -52,10 +53,10 @@
     keymap {
         compatible = "zmk,keymap";
         default_layer { bindings = <
-        &kp  ESC       &kp Q    &kp W   &kp E    &kp R      &kp T                                              &kp Y      &kp U     &kp I       &kp O          &kp P  &kp BSPC
-&kp LEFT_CONTROL       &kp A   HMA(S)  HMC(D)   HMS(F)     HMG(G)                                             HMG(H)     HMS(J)    HMC(K)      HMA(L)      &kp COMMA   &kp DOT
-    &kp LEFT_ALT  &kp LSHIFT  HMAG(Z)   &kp X    &kp C      &kp V  &none        &kp ENTER        &none  &none  &kp B      &kp N     &kp M  HMAG(RALT)  &kp SEMICOLON   &kp SQT
-                                     &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &mt SPACE ENTER  &key_repeat  &mo 1  &mo 2  &kp SLASH  &kp BSLH
+ &kp  ESC       &kp Q    &kp W   &kp E    &kp R      &kp T                                              &kp Y      &kp U     &kp I       &kp O          &kp P  &kp BSPC
+&kp LCTRL       &kp A   HMA(S)  HMC(D)   HMS(F)     HMG(G)                                             HMG(H)     HMS(J)    HMC(K)      HMA(L)      &kp COMMA   &kp DOT
+ &kp LALT  &kp LSHIFT  HMAG(Z)   &kp X    &kp C      &kp V  &none        &kp ENTER        &none  &none  &kp B      &kp N     &kp M  HMAG(RALT)  &kp SEMICOLON   &kp SQT
+                              &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &mt SPACE ENTER  &key_repeat  &mo 1  &mo 2  &kp SLASH  &kp BSLH
             >;      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };          layer_1 { bindings = <
 &none  &kp F1   &kp F2   &kp F3   &kp F4  &none                                &kp N7  &kp N8  &kp N9    &kp N0     &none     &kp DEL
