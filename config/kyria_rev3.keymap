@@ -4,22 +4,32 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-&led_strip {
-    chain-length = <31>;
-};
+&led_strip { chain-length = <31>; };
 
 #define AS(keycode) &as LS(keycode) keycode     //  autoshift modifier
+#define H1(keycode) &hm ALT keycode
+#define H2(keycode) &hm CTRL keycode
+#define H3(keycode) &hm LGUI keycode
+#define H1gr(keycode) &hm ALT keycode
 
 / {
     behaviors {
-      as: auto_shift {
-         compatible = "zmk,behavior-hold-tap";
-         label = "AUTO_SHIFT";
-         #binding-cells = <2>;
-         tapping_term_ms = <150>;
-         quick_tap_ms = <0>;
-         flavor = "tap-preferred";
-         bindings = <&kp>, <&kp>;
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MOD";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+            };
+        as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "AUTO_SHIFT";
+            #binding-cells = <2>;
+            tapping_term_ms = <150>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
       };
     };
             // ---------------------------------------------------------------------------------------------------------------------
@@ -41,19 +51,20 @@
     keymap {
         compatible = "zmk,keymap";
         default_layer { bindings = <
-        &kp  ESC       AS(Q)  AS(W)     AS(E)    AS(R)      AS(T)                                              AS(Y)      AS(U)     AS(I)  AS(O)          AS(P)  &kp BSPC
-&kp LEFT_CONTROL       AS(A)  AS(S)     AS(D)    AS(F)      AS(G)                                              AS(H)      AS(J)     AS(K)  AS(L)      AS(COMMA)   AS(DOT)
-    &kp LEFT_ALT  &kp LSHIFT  AS(Z)     AS(X)    AS(C)      AS(V)  &none        &kp ENTER        &none  &none  AS(B)      AS(N)     AS(M)  &none  AS(SEMICOLON)   AS(SQT)
-                                     &kp LGUI  AS(TAB)  AS(GRAVE)  &mo 2  &mt SPACE ENTER  &key_repeat  &mo 1  &mo 2  AS(SLASH)  AS(BSLH)
+        &kp  ESC       &kp Q     &kp W     &kp E    &kp R      &kp T                                              &kp Y      &kp U     &kp I         &kp O          &kp P  &kp BSPC
+&kp LEFT_CONTROL       &kp A    HM1(S)    HM2(D)   HM3(F)      &kp G                                              &kp H     HM3(J)    HM2(K)        HM1(L)      &kp COMMA   &kp DOT
+    &kp LEFT_ALT  &kp LSHIFT  HM1gr(Z)     &kp X    &kp C      &kp V  &none        &kp ENTER        &none  &none  &kp B      &kp N     &kp M  HM1gr(&none)  &kp SEMICOLON   &kp SQT
+                                     &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &mt SPACE ENTER  &key_repeat  &mo 1  &mo 2  &kp SLASH  &kp BSLH
             >;      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };          layer_1 { bindings = <
-&kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6                                AS(N7)  AS(N8)  AS(N9)    AS(N0)     &none     &kp DEL
-&kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12                                AS(N4)  AS(N5)  AS(N6)  &kp PLUS  &kp MINUS    &kp DOT
- &none   &none   &none    &none    &none    &none  &none   &none   &none  &none  AS(N1)  AS(N2)  AS(N3)  &kp STAR  &kp SLASH  &kp EQUAL
+&kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6                                &kp N7  &kp N8  &kp N9    &kp N0     &none     &kp DEL
+&kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12                                &kp N4  &kp N5  &kp N6  &kp PLUS  &kp MINUS    &kp DOT
+ &none   &none   &none    &none    &none    &none  &none   &none   &none  &none  &kp N1  &kp N2  &kp N3  &kp STAR  &kp SLASH  &kp EQUAL
                          &trans   &trans    &none  &none  &trans  &trans  &none  &none   &none   &none
         >; };       layer_2 { bindings = <
-&trans  &none  &none  &none  &none  AS(PG_UP)                                                AS(HOME)       &none      &kp UP      &none  &none  &none
- &none  &none  &none  &none  &none  AS(PG_DN)                                                 AS(END)    &kp LEFT    &kp DOWN  &kp RIGHT  &none  &none
+&trans  &none  &none  &none  &none  &kp PG_UP                                                &kp HOME       &none      &kp UP      &none  &none  &none
+ &none  &none  &none  &none  &none  &kp PG_DN                                                 &kp END    &kp LEFT    &kp DOWN  &kp RIGHT  &none  &none
  &none  &none  &none  &none  &none      &none  &none  &none             &none  &kp C_VOL_UP     &none       &none       &none      &none  &none  &none
                       &none  &none      &none  &none  &none  &kp C_PLAY_PAUSE  &kp C_VOL_DN     &none  &kp C_PREV  &kp C_NEXT
->; }; }; };
+>; }; };
+};
