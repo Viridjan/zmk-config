@@ -6,12 +6,22 @@
 
 &led_strip { chain-length = <31>; };
 
-#define AS(keycode) &as LS(keycode) keycode     //  autoshift modifier
-#define HMA(keycode) &hm LALT keycode
-#define HMC(keycode) &hm LCTRL keycode
-#define HMG(keycode) &hm LGUI keycode
-#define HMS(keycode) &hm LSHIFT keycode
-#define HMAG(keycode) &hm RALT keycode
+//    autoshift mod
+    #define AS(keycode) &as LS(keycode) keycode
+//    homerow mod mod
+    #define HMA(keycode) &hm LALT keycode
+    #define HMC(keycode) &hm LCTRL keycode
+    #define HMG(keycode) &hm LGUI keycode
+    #define HMS(keycode) &hm LSHIFT keycode
+    #define HMAG(keycode) &hm RALT keycode
+//    other mod 
+    #define SPC &mt ENTER SPACE
+    #define REDO &key_repeat
+    #define PM &mt MINUS PLUS
+    #define MD &mt FSLH STAR
+    #define PLAY &kp C_PLAY_PAUSE
+    #define PREV &kp C_PREV
+    #define NEXT &kp C_NEXT
 
 / {
     behaviors {
@@ -37,12 +47,12 @@
             // ---------------------------------------------------------------------------------------------------------------------
             // | ESC  |  Q   |  W   |  E   |  R   |  T   |              ~~~              |  Y   |  U   |  I   |  O   |  P   | BSPC |
             // | CTRL |  A   |  S   |  D   |  F   |  G   |              ~~~              |  H   |  J   |  K   |  L   |  ,   |  .   |
-            // | ALT  |  ⇧   |  Z   |  X   |  C   |  V   | ____ |ENTER |~~~| ____ | ____ |  B   |  N   |  M   | ____ |  ;   |  '   |
-            //                   | GUI  | TAB  |  `   |~~| [2]  | SPC+ |~~~|REPEAT| [1]  |~~| [2]  |  /   |  \   |
+            // | ALT  |  ⇧   |  Z   |  X   |  C   |  V   | ____ | ____ |~~~| ____ | ____ |  B   |  N   |  M   | ____ |  ;   |  '   |
+            //                   | GUI  | TAB  |  `   |~~| [2]  | SPC+ |~~~| REDO | [1]  |~~| [2]  |  /   |  \   |
             // ---------------------------------------------------------------------------------------------------------------------
-            // ~[____]|[ F1 ]|[ F2 ]|[ F3 ]|[ F4 ]|[____]~              ~~~              ~[ 7  ]|[ 8  ]|[ 9  ]|[ 0  ]|[    ]|[DEL ]~
-            // ~[____]|[ F5 ]|[ F6 ]|[ F7 ]|[ F8 ]|[____]~              ~~~              ~[ 4  ]|[ 5  ]|[ 6  ]|[ +  ]|[ -  ]|[ .  ]~
-            // ~[____]|[ F9 ]|[F10 ]|[F11 ]|[F12 ]|[____]|[____]|[    ]~~~~~[____]|[____]|[ 1  ]|[ 2  ]|[ 3  ]|[ *  ]|[ /  ]|[ =  ]~
+            // ~[    ]|[ F1 ]|[ F2 ]|[ F3 ]|[ F4 ]|[____]~              ~~~              ~[____]|[ 7  ]|[ 8  ]|[ 9  ]|[ 0  ]|[DEL ]~
+            // ~[____]|[ F5 ]|[ F6 ]|[ F7 ]|[ F8 ]|[____]~              ~~~              ~[____]|[ 4  ]|[ 5  ]|[ 6  ]|[ +- ]|[ .  ]~
+            // ~[____]|[ F9 ]|[F10 ]|[F11 ]|[F12 ]|[____]|[____]|[    ]~~~~~[____]|[____]|[____]|[ 1  ]|[ 2  ]|[ 3  ]|[ */ ]|[ =  ]~
             //                   ~[    ]|[    ]|[____]~~~~[____]|[    ]~~~~~[    ]|[____]~~~~[____]|[____]|[____]~
             // ---------------------------------------------------------------------------------------------------------------------
             // ~[    ]~[____]~[____]~[____]~[____]~[PGUP]~              ~~~              ~[HOME]~[____]~[ ↑  ]~[____]~[____]~[____]~
@@ -53,20 +63,20 @@
     keymap {
         compatible = "zmk,keymap";
         default_layer { bindings = <
- &kp  ESC       &kp Q    &kp W   &kp E    &kp R      &kp T                                              &kp Y      &kp U     &kp I       &kp O          &kp P  &kp BSPC
-&kp LCTRL       &kp A   HMA(S)  HMC(D)   HMS(F)     HMG(G)                                             HMG(H)     HMS(J)    HMC(K)      HMA(L)      &kp COMMA   &kp DOT
- &kp LALT  &kp LSHIFT  HMAG(Z)   &kp X    &kp C      &kp V  &none        &kp ENTER        &none  &none  &kp B      &kp N     &kp M  HMAG(RALT)  &kp SEMICOLON   &kp SQT
-                              &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2  &mt SPACE ENTER  &key_repeat  &mo 1  &mo 2  &kp SLASH  &kp BSLH
+ &kp  ESC       &kp Q    &kp W   &kp E    &kp R      &kp T                             &kp Y      &kp U     &kp I       &kp O      &kp P  &kp BSPC
+&kp LCTRL       &kp A   HMA(S)  HMC(D)   HMS(F)     HMG(G)                             HMG(H)     HMS(J)    HMC(K)     HMA(L)  &kp COMMA   &kp DOT
+ &kp LALT  &kp LSHIFT  HMAG(Z)   &kp X    &kp C      &kp V  &none  &none  &none  &none  &kp B     &kp N     &kp M  HMAG(RALT)   &kp SEMI   &kp SQT
+                              &kp LGUI  AS(TAB)  &kp GRAVE  &mo 2    SPC   REDO  &mo 1  &mo 2  &kp FSLH  &kp BSLH
             >;      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };          layer_1 { bindings = <
-&none  &kp F1   &kp F2   &kp F3   &kp F4  &none                                &kp N7  &kp N8  &kp N9    &kp N0     &none     &kp DEL
-&none  &kp F5   &kp F6   &kp F7   &kp F8  &none                                &kp N4  &kp N5  &kp N6  &kp PLUS  &kp MINUS    &kp DOT
-&none  &kp F9  &kp F10  &kp F11  &kp F12  &none  &none  &trans   &none  &none  &kp N1  &kp N2  &kp N3  &kp STAR  &kp SLASH  &kp EQUAL
-                         &trans   &trans  &none  &none  &trans  &trans  &none   &none   &none   &none
+&trans  &kp F1   &kp F2   &kp F3   &kp F4  &none                                &none  &kp N7  &kp N8  &kp N9  &kp N0    &kp DEL
+&none   &kp F5   &kp F6   &kp F7   &kp F8  &none                                &none  &kp N4  &kp N5  &kp N6      PM    &kp DOT
+&none   &kp F9  &kp F10  &kp F11  &kp F12  &none  &none  &trans   &none  &none  &none  &kp N1  &kp N2  &kp N3      MD  &kp EQUAL
+                          &trans   &trans  &none  &none  &trans  &trans  &none  &none   &none   &none
         >; };       layer_2 { bindings = <
-&trans  &none  &none  &none  &none  &kp PG_UP                                                &kp HOME       &none      &kp UP      &none  &none  &none
- &none  &none  &none  &none  &none  &kp PG_DN                                                 &kp END    &kp LEFT    &kp DOWN  &kp RIGHT  &none  &none
- &none  &none  &none  &none  &none      &none  &none  &none             &none  &kp C_VOL_UP     &none       &none       &none      &none  &none  &none
-                      &none  &none      &none  &none  &none  &kp C_PLAY_PAUSE  &kp C_VOL_DN     &none  &kp C_PREV  &kp C_NEXT
+&trans  &none  &none  &none  &none  &kp PG_UP                                  &kp HOME     &none    &kp UP      &none  &none  &none
+ &none  &none  &none  &none  &none  &kp PG_DN                                   &kp END  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
+ &none  &none  &none  &none  &none      &none  &none  &none  &none  &kp C_VOL_UP  &none     &none     &none      &none  &none  &none
+                      &none  &none      &none  &none  &none   PLAY  &kp C_VOL_DN  &none      PREV      NEXT
 >; }; };
 };
