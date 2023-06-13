@@ -48,7 +48,7 @@
             // | ESC  |  Q   |  W   |  E   |  R   |  T   |              ~~~              |  Y   |  U   |  I   |  O   |  P   | BSPC |
             // |  `   |- A  -|- S  -|- D  -|- F  -|- G  -|              ~~~              |- H  -|- J  -|- K  -|- L  -|  ,   |  .   |
             // | ____ | ____ |- Z  -|  X   |  C   |  V   | ____ | ____ |~~~| ____ | ____ |  B   |  N   |- M  -| ____ |  ;   |  '   |
-            //                   | ____ | TAB+ |  `   |~~| [2]  | SPC+ |~~~| REDO | [1]  |~~| [2]  |  /   |  \   |
+            //                   | ____ | TAB+ |  `   |~~| [1]  | SPC+ |~~~| REDO | [1]  |~~| [2]  |  /   |  \   |
             // ---------------------------------------------------------------------------------------------------------------------
             // ~[    ]|[ F1 ]|[ F2 ]|[ F3 ]|[ F4 ]|[____]~              ~~~              ~[____]|[ 7  ]|[ 8  ]|[ 9  ]|[ 0  ]|[DEL ]~
             // ~[____]|[ F5 ]|[ F6 ]|[ F7 ]|[ F8 ]|[____]~              ~~~              ~[____]|[ 4  ]|[ 5  ]|[ 6  ]|[ +- ]|[ .  ]~
@@ -71,19 +71,19 @@
  &kp  ESC  &kp Q    &kp W   &kp E    &kp R   &kp T                             &kp Y      &kp U     &kp I       &kp O      &kp P  &kp BSPC
 &kp GRAVE  &kp A   HMA(S)  HMC(D)   HMS(F)  HMG(G)                             HMG(H)     HMS(J)    HMC(K)     HMA(L)  &kp COMMA   &kp DOT
     &none  &none  HMAG(Z)   &kp X    &kp C   &kp V  &none  &none  &none  &none  &kp B     &kp N     &kp M  HMAG(RALT)   &kp SEMI   &kp SQT
-                            &none  AS(TAB)   &none  &mo 2    SPC   REDO  &mo 1  &mo 2  &kp FSLH  &kp BSLH
+                            &none  AS(TAB)   &none  &mo 1    SPC   REDO  &mo 1  &mo 2  &kp FSLH  &kp BSLH
             >;      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };          layer_1 { bindings = <
 &trans  &kp F1   &kp F2   &kp F3   &kp F4  &none                                &none  &kp N7  &kp N8  &kp N9  &kp N0    &kp DEL
-&none   &kp F5   &kp F6   &kp F7   &kp F8  &none                                &none  &kp N4  &kp N5  &kp N6      PM    &kp DOT
-&none   &kp F9  &kp F10  &kp F11  &kp F12  &none  &none  &trans   &none  &none  &none  &kp N1  &kp N2  &kp N3      MD  &kp EQUAL
+ &none  &kp F5   &kp F6   &kp F7   &kp F8  &none                                &none  &kp N4  &kp N5  &kp N6      PM    &kp DOT
+ &none  &kp F9  &kp F10  &kp F11  &kp F12  &none  &none  &trans   &none  &none  &none  &kp N1  &kp N2  &kp N3      MD  &kp EQUAL
                            &none   &trans  &none  &none  &trans  &trans  &none  &none   &none   &none
         >; };       layer_2 { bindings = <
 &trans  &none  &none  &none  &none   &none                                    &none  &kp AMPS   &kp STAR   &kp LPAR  &kp RPAR    &kp DEL
  &none  &none  &none  &none  &none   &none                                    &none  &kp DLLR  &kp PRCNT  &kp CARET        PM    &kp DOT
  &none  &none  &none  &none  &none   &none  &none  &trans   &none  &none  &kp QMARK  &kp EXCL     &kp AT   &kp HASH        MD  &kp EQUAL
                              &none  &trans  &none  &none  &trans  &trans      &none     &none      &none      &none
-        >; };       layer_2 { bindings = <
+        >; };       layer_3 { bindings = <
 &trans  &none  &none  &none   &none  &kp PG_UP                                  &kp HOME     &none    &kp UP      &none  &none  &none
  &none  &none  &none  &none   &none  &kp PG_DN                                   &kp END  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
  &none  &none  &none  &none   &none      &none  &none  &none  &none  &kp C_VOL_UP  &none     &none     &none      &none  &none  &none
