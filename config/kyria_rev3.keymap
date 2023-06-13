@@ -8,13 +8,13 @@
 
 //    autoshift mod
     #define AS(keycode) &as LS(keycode) keycode
-//    homerow mod mod
+//    homerow mods
     #define HMA(keycode) &hm LALT keycode
     #define HMC(keycode) &hm LCTRL keycode
     #define HMG(keycode) &hm LGUI keycode
     #define HMS(keycode) &hm LSHIFT keycode
     #define HMAG(keycode) &hm RALT keycode
-//    other mod 
+//    other mods
     #define SPC &mt ENTER SPACE
     #define REDO &key_repeat
     #define PM &mt MINUS PLUS
